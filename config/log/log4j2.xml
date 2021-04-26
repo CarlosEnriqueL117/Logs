@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="5">
+
+    <Appenders>
+        <!--<RollingFile name="JSON" fileName="log/Replicador.json" filePattern="log/Replicador-%d{yyyy-MM-dd}.json">
+            <MarkerFilter marker="JSON" onMatch="ACCEPT" onMismatch="DENY"/>&lt;!&ndash;Condicionales para aceptar o denegar archivos&ndash;&gt;
+            <PatternLayout>
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>-->
+        <RollingFile name="eventos" fileName="log/Replicador.log" filePattern="log/Replicador-%d{yyyy-MM-dd}.log">
+            <MarkerFilter marker="JSON" onMatch="DENY" onMismatch="ACCEPT"/>
+            <PatternLayout><!--Patron: Configuración de Hora, Hilo, Nivel de logeo, lloger36= muestrame la clase limita a 36 caracteres, mensaje-->
+                <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies><!--Son Se colocan las politicas/reglas del archivo, como el tamaño, cada cuanto tiempo se escribira en el archivo-->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers><!--Tiene un conjunto de reglas para el nivel de logeo: -->
+        <Root level="ALL"><!--Logeo root quiero todos, para no querer ninguno es decir OFF seria NONE-->
+            <AppenderRef ref="eventos"/><!--Que archivos quiere tomar en cuenta para aplicar estas configuraciones-->
+<!--            <AppenderRef ref="JSON"/>-->
+        </Root>
+    </Loggers>
+
+</Configuration>
