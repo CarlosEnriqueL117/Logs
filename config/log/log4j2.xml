@@ -2,17 +2,17 @@
 <Configuration status="WARN" monitorInterval="5">
 
     <Appenders>
-        <!--<RollingFile name="JSON" fileName="log/Replicador.json" filePattern="log/Replicador-%d{yyyy-MM-dd}.json">
-            <MarkerFilter marker="JSON" onMatch="ACCEPT" onMismatch="DENY"/>&lt;!&ndash;Condicionales para aceptar o denegar archivos&ndash;&gt;
+    <RollingFile name="NoINFO" fileName="log/MensajesNoINFO.log" filePattern="log/MensajesNoINFO-%d{yyyy-MM-dd}.log">
+            <MarkerFilter marker="marker" onMatch="ACCEPT" onMismatch="DENY"/><!--Condicionales para aceptar o denegar archivos&ndash-->
             <PatternLayout>
                 <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
             </Policies>
-        </RollingFile>-->
-        <RollingFile name="eventos" fileName="log/Replicador.log" filePattern="log/Replicador-%d{yyyy-MM-dd}.log">
-            <MarkerFilter marker="JSON" onMatch="DENY" onMismatch="ACCEPT"/>
+        </RollingFile>
+        <RollingFile name="marker" fileName="log/MensajesINFO.log" filePattern="log/LogsWarn-%d{yyyy-MM-dd}.log">
+            <MarkerFilter marker="WARN" onMatch="DENY" onMismatch="ACCEPT"/>
             <PatternLayout><!--Patron: Configuración de Hora, Hilo, Nivel de logeo, lloger36= muestrame la clase limita a 36 caracteres, mensaje-->
                 <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>
@@ -23,9 +23,10 @@
     </Appenders>
 
     <Loggers><!--Tiene un conjunto de reglas para el nivel de logeo: -->
-        <Root level="ALL"><!--Logeo root quiero todos, para no querer ninguno es decir OFF seria NONE-->
-            <AppenderRef ref="eventos"/><!--Que archivos quiere tomar en cuenta para aplicar estas configuraciones-->
+        <Root level="INFO"><!--Logeo root quiero todos, para no querer ninguno es decir OFF seria NONE-->
+            <AppenderRef ref="eventosM"/><!--Que archivos quiere tomar en cuenta para aplicar estas configuraciones-->
 <!--            <AppenderRef ref="JSON"/>-->
+            <AppenderRef ref="NoINFO"/>
         </Root>
     </Loggers>
 

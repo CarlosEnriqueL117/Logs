@@ -3,6 +3,8 @@ package com.ks.practicaBD.demoFutbolistas.Servicio;
 import com.ks.practicaBD.demoFutbolistas.Repositorio.FutbolistaRepositorio;
 import com.ks.practicaBD.demoFutbolistas.modelo.Futbolistas;
 import lombok.extern.log4j.Log4j2;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,7 @@ import java.util.List;
 @Service
 
 public class FutbolistaServicio {
+    public static final Marker marker= MarkerManager.getMarker("WARM");
 
     @Autowired
     public FutbolistaRepositorio futbolistaRepositorio;
@@ -32,9 +35,9 @@ public class FutbolistaServicio {
             log.error("Error - No se puede asignar la posición {}",futbolistas.getPosicion());
             log.fatal("Fatal - No se puede asignar la posición: {}",futbolistas.getPosicion());
             log.info("Info - No se puede asignar la posición: {}",futbolistas.getPosicion());
-            log.warn("Warn - No se puede asignar la posición {}",futbolistas.getPosicion());
-            log.debug("Debug - No se puede asignar la posición: {}", futbolistas.getPosicion());
-            log.trace("Trace - No se puede asignar la posición: {}",futbolistas.getPosicion());
+            log.warn(marker,"Warn - No se puede asignar la posición {}",futbolistas.getPosicion());
+            log.debug(marker,"Debug - No se puede asignar la posición: {}", futbolistas.getPosicion());
+            log.trace(marker,"Trace - No se puede asignar la posición: {}",futbolistas.getPosicion());
             return futbolistas;
         }
     }

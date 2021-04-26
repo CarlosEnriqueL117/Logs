@@ -1,0 +1,38 @@
+17:24:20.023 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - Starting DemoFutbolistasApplication using Java 16 on PC-CARLOS with PID 157480 (C:\Users\CarlosEnrique\IdeaProjects\demoFutbolistas\demoFutbolistas\target\classes started by CarlosEnrique in C:\Users\CarlosEnrique\IdeaProjects\demoFutbolistas\demoFutbolistas)
+17:24:20.049 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - No active profile set, falling back to default profiles: default
+17:24:25.406 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:24:25.645 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 159 ms. Found 1 JPA repository interfaces.
+17:24:28.104 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8087 (http)
+17:24:28.581 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8253 ms
+17:24:29.866 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:24:30.384 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+17:24:30.725 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:24:31.307 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+17:24:33.181 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:24:33.194 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:24:34.294 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:24:34.770 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+17:24:36.057 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8087 (http) with context path ''
+17:24:36.074 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - Started DemoFutbolistasApplication in 18.828 seconds (JVM running for 22.626)
+17:24:49.164 [http-nio-8087-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+17:24:49.166 [http-nio-8087-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+17:24:49.603 [http-nio-8087-exec-1] ERROR com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio - Error - No se puede asignar la posición a
+17:24:49.603 [http-nio-8087-exec-1] FATAL com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio - Fatal - No se puede asignar la posición: a
+17:24:49.603 [http-nio-8087-exec-1] INFO  com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio - Info - No se puede asignar la posición: a
+17:24:49.603 [http-nio-8087-exec-1] WARN  com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio - Warn - No se puede asignar la posición a
+17:26:31.963 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - Starting DemoFutbolistasApplication using Java 16 on PC-CARLOS with PID 53056 (C:\Users\CarlosEnrique\IdeaProjects\demoFutbolistas\demoFutbolistas\target\classes started by CarlosEnrique in C:\Users\CarlosEnrique\IdeaProjects\demoFutbolistas\demoFutbolistas)
+17:26:32.145 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - No active profile set, falling back to default profiles: default
+17:26:35.090 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+17:26:35.279 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 162 ms. Found 1 JPA repository interfaces.
+17:26:37.998 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8087 (http)
+17:26:38.413 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5800 ms
+17:26:39.588 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+17:26:39.735 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.4.30.Final
+17:26:40.574 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+17:26:41.092 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+17:26:42.964 [main] INFO  org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+17:26:42.978 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+17:26:44.068 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+17:26:44.549 [main] INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+17:26:45.833 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8087 (http) with context path ''
+17:26:45.865 [main] INFO  com.ks.practicaBD.demoFutbolistas.DemoFutbolistasApplication - Started DemoFutbolistasApplication in 16.445 seconds (JVM running for 20.112)
