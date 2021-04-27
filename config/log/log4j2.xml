@@ -12,7 +12,7 @@
             </Policies>
         </RollingFile>
         <RollingFile name="marker" fileName="log/MensajesINFO.log" filePattern="log/LogsWarn-%d{yyyy-MM-dd}.log">
-            <MarkerFilter marker="WARN" onMatch="DENY" onMismatch="ACCEPT"/>
+            <MarkerFilter marker="marker" onMatch="DENY" onMismatch="ACCEPT"/>
             <PatternLayout><!--Patron: Configuración de Hora, Hilo, Nivel de logeo, lloger36= muestrame la clase limita a 36 caracteres, mensaje-->
                 <Pattern>%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
             </PatternLayout>

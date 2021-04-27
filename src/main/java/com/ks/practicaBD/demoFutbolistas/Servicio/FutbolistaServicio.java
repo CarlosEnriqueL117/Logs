@@ -2,10 +2,11 @@ package com.ks.practicaBD.demoFutbolistas.Servicio;
 
 import com.ks.practicaBD.demoFutbolistas.Repositorio.FutbolistaRepositorio;
 import com.ks.practicaBD.demoFutbolistas.modelo.Futbolistas;
+import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +14,11 @@ import java.util.List;
 
 @Log4j2 //Liberias para notas
 @Service
+@Setter
 
 public class FutbolistaServicio {
     public static final Marker marker= MarkerManager.getMarker("marker");
-
+    private String posicionEspecial;
     @Autowired
     public FutbolistaRepositorio futbolistaRepositorio;
     public Futbolistas futbolistas;
@@ -41,6 +43,12 @@ public class FutbolistaServicio {
             return futbolistas;
         }
     }
+
+    /**
+     * This methos use to repositorio to delete an specific futbolista
+     *
+     * @param id is the param to delete
+     */
     //Delete
     public void deletById(int id){
        // if (futbolistas.getId()!=id){
@@ -49,5 +57,14 @@ public class FutbolistaServicio {
        // }else{
             futbolistaRepositorio.deleteById(id);
         //}
+    }
+
+    public Futbolistas saveDefensa(Futbolistas futbolistas){
+            futbolistas.setPosicion("defensa");
+        return futbolistaRepositorio.save(futbolistas);
+    }
+    public Futbolistas saveDelantero(Futbolistas futbolistas){
+        futbolistas.setPosicion("delantero");
+        return futbolistaRepositorio.save(futbolistas);
     }
 }

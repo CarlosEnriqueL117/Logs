@@ -4,18 +4,26 @@ import com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.ks.practicaBD.demoFutbolistas.modelo.Futbolistas;
+import com.ks.practicaBD.demoFutbolistas.modelo.Config;
 
 @SpringBootApplication
 public class DemoFutbolistasApplication implements ApplicationRunner {
 @Autowired
 	FutbolistaRepositorio futbolistaRepositorio;
-@Autowired
+
+	@Autowired
+	@Qualifier("futbolistaServicioDelantero")
 	FutbolistaServicio futbolistaServicio;
+
+	@Autowired
+	@Qualifier("futbolistaServicioDefensa")
+	FutbolistaServicio futbolistaServicioDefensa;
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoFutbolistasApplication.class, args);
@@ -23,11 +31,11 @@ public class DemoFutbolistasApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		System.out.println("Hola");
+		System.out.println("Corriendo");
 		//Guardar
-		Futbolistas futbolistas = futbolistaServicio.futbolistaRepositorio.save(new Futbolistas("carlos", "defensa", 10));
+		Futbolistas futbolistas = futbolistaServicio.futbolistaRepositorio.save(new Futbolistas("carlos", "delantero", 10));
 		System.out.println(futbolistaServicio.futbolistaRepositorio.findAll());
-
+		//System.out.println(futbolistaServicioDefensa);
 		//Actualizar
 		/*futbolistas.setPosicion("Delantero");
 		futbolistas.setNumcamisa(22);
