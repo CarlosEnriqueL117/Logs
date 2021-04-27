@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ks.practicaBD</groupId>
 	<artifactId>demoFutbolistas</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.6-SNAPSHOT</version>
 	<name>demoFutbolistas</name>
 	<description>Prueba de conexión a BD</description>
 	<properties>

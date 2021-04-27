@@ -33,8 +33,8 @@ public class DemoFutbolistasApplication implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		System.out.println("Corriendo");
 		//Guardar
-		Futbolistas futbolistas = futbolistaServicio.futbolistaRepositorio.save(new Futbolistas("carlos", "delantero", 10));
-		System.out.println(futbolistaServicio.futbolistaRepositorio.findAll());
+		Futbolistas futbolistas = futbolistaServicio.save(new Futbolistas("carlos", "delantero", 10));
+		System.out.println(futbolistaServicio.findAll());
 		//System.out.println(futbolistaServicioDefensa);
 		//Actualizar
 		/*futbolistas.setPosicion("Delantero");
