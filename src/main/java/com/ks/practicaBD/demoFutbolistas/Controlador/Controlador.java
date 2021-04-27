@@ -1,21 +1,41 @@
 package com.ks.practicaBD.demoFutbolistas.Controlador;
 
 import com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio;
-import com.ks.practicaBD.demoFutbolistas.modelo.Config;
 import com.ks.practicaBD.demoFutbolistas.modelo.Futbolistas;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
-
+//Quitar el Scope
+//@Lazy Crea el bean hasta que se llama, NO desde el inicio, esto evita una sobrecarga de beans que no se usarán hasta que sean usados
+@Scope("prototype")// Para que cuando cree una instancia de http, se cree el bean y a la siguiente petición se destriuya el bean y se cree una nueva copia
 @RestController
 @RequestMapping(path = "/futbolistas")//Hace que los path de los métodos sean iguales
-public class Controlador implements InitializingBean, DisposableBean {
+//Si esta clase no fuera un controlador, servicio se requiere un @Controller
+public class Controlador {
+
+    @PostConstruct//permite ejeuctar um método despúes de que se ejcuta el contructor e inyecta dependencias
+    public void postConstruct(){
+        System.out.println("Texto después de crear el objeto, como evidencia, esta es la referencia en memoria de FutbolistaService: "+futbolistaServicio);
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        System.out.println("Texto antes de que se destruya");
+    }
+
+
+    public Controlador(FutbolistaServicio futbolistaServicio) {
+        System.out.println("Entrando en el constructor");
+        this.futbolistaServicio = futbolistaServicio;
+    }
+
     @Autowired
     private FutbolistaServicio futbolistaServicio;
 
@@ -75,8 +95,7 @@ public class Controlador implements InitializingBean, DisposableBean {
      */
     @PostMapping(path = "/delantero")
         public Futbolistas saveDelantero(@RequestBody Futbolistas futbolistas) throws Exception {
-        afterPropertiesSet();
-        destroy();
+
           return futbolistaServicioDelantero.saveDelantero(futbolistas);
     }
 
@@ -98,15 +117,5 @@ public class Controlador implements InitializingBean, DisposableBean {
 
     //Ciclo del Bean
 
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("Después de haber destruido el Bean");
-        System.out.println(futbolistaServicio.findAll());
-    }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("Después de inicializar el bean");
-        System.out.println(futbolistaServicio.findAll());
-    }
 }
