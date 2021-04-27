@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 
 public class FutbolistaServicio {
-    public static final Marker marker= MarkerManager.getMarker("WARM");
+    public static final Marker marker= MarkerManager.getMarker("marker");
 
     @Autowired
     public FutbolistaRepositorio futbolistaRepositorio;
@@ -32,9 +32,9 @@ public class FutbolistaServicio {
 
             return futbolistaRepositorio.save(futbolistas);
         }else{
-            log.error("Error - No se puede asignar la posición {}",futbolistas.getPosicion());
-            log.fatal("Fatal - No se puede asignar la posición: {}",futbolistas.getPosicion());
-            log.info("Info - No se puede asignar la posición: {}",futbolistas.getPosicion());
+            log.error(marker,"Error - No se puede asignar la posición {}",futbolistas.getPosicion());
+            log.fatal(marker,"Fatal - No se puede asignar la posición: {}",futbolistas.getPosicion());
+            log.info(marker,"Info - No se puede asignar la posición: {}",futbolistas.getPosicion());
             log.warn(marker,"Warn - No se puede asignar la posición {}",futbolistas.getPosicion());
             log.debug(marker,"Debug - No se puede asignar la posición: {}", futbolistas.getPosicion());
             log.trace(marker,"Trace - No se puede asignar la posición: {}",futbolistas.getPosicion());

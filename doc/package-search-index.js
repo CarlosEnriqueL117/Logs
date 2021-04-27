@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.ks.practicaBD.demoFutbolistas"},{"l":"com.ks.practicaBD.demoFutbolistas.Controlador"},{"l":"com.ks.practicaBD.demoFutbolistas.modelo"},{"l":"com.ks.practicaBD.demoFutbolistas.Repositorio"},{"l":"com.ks.practicaBD.demoFutbolistas.Servicio"}];updateSearchResults();

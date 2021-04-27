@@ -24,7 +24,7 @@
 
     <Loggers><!--Tiene un conjunto de reglas para el nivel de logeo: -->
         <Root level="INFO"><!--Logeo root quiero todos, para no querer ninguno es decir OFF seria NONE-->
-            <AppenderRef ref="eventosM"/><!--Que archivos quiere tomar en cuenta para aplicar estas configuraciones-->
+            <AppenderRef ref="marker"/><!--Que archivos quiere tomar en cuenta para aplicar estas configuraciones-->
 <!--            <AppenderRef ref="JSON"/>-->
             <AppenderRef ref="NoINFO"/>
         </Root>
