@@ -20,7 +20,7 @@ public class FutbolistaServicio {
     public static final Marker marker= MarkerManager.getMarker("marker");
     private String posicionEspecial;
     @Autowired
-    public FutbolistaRepositorio futbolistaRepositorio;
+    private FutbolistaRepositorio futbolistaRepositorio;
     public Futbolistas futbolistas;
 
     //Find
@@ -58,7 +58,7 @@ public class FutbolistaServicio {
             futbolistaRepositorio.deleteById(id);
         //}
     }
-
+    //Beans personalizados para defensa y delantero
     public Futbolistas saveDefensa(Futbolistas futbolistas){
             futbolistas.setPosicion("defensa");
         return futbolistaRepositorio.save(futbolistas);
@@ -66,5 +66,17 @@ public class FutbolistaServicio {
     public Futbolistas saveDelantero(Futbolistas futbolistas){
         futbolistas.setPosicion("delantero");
         return futbolistaRepositorio.save(futbolistas);
+    }
+    //
+    public List<Futbolistas> findAllC() {
+     return futbolistaRepositorio.findAllC();
+    }
+
+    public List<Futbolistas> findAllDelanteros() {
+        return futbolistaRepositorio.findAllDelanteros();
+    }
+
+    public int updateCamisaFutbolistas(int id) {
+        return futbolistaRepositorio.updateCamisaFutbolistas(id);
     }
 }

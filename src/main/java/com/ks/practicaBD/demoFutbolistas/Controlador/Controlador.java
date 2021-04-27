@@ -1,7 +1,10 @@
 package com.ks.practicaBD.demoFutbolistas.Controlador;
 
 import com.ks.practicaBD.demoFutbolistas.Servicio.FutbolistaServicio;
+import com.ks.practicaBD.demoFutbolistas.modelo.Config;
 import com.ks.practicaBD.demoFutbolistas.modelo.Futbolistas;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "/futbolistas")//Hace que los path de los métodos sean iguales
-public class Controlador {
+public class Controlador implements InitializingBean, DisposableBean {
     @Autowired
     private FutbolistaServicio futbolistaServicio;
 
@@ -71,7 +74,39 @@ public class Controlador {
      * @return is the valua to save in BD
      */
     @PostMapping(path = "/delantero")
-        public Futbolistas saveDelantero(@RequestBody Futbolistas futbolistas){
+        public Futbolistas saveDelantero(@RequestBody Futbolistas futbolistas) throws Exception {
+        afterPropertiesSet();
+        destroy();
           return futbolistaServicioDelantero.saveDelantero(futbolistas);
+    }
+
+    //Transactiona y Modifying
+    @GetMapping(path = "/Custom")
+    public List<Futbolistas> fiutbolindAllC() {
+        return futbolistaServicio.findAllC();
+    }
+
+    @GetMapping(path = "/CustomD")
+    public List<Futbolistas> fiutbolindAllDelanteros() {
+        return futbolistaServicio.findAllDelanteros();
+    }
+
+    @PutMapping(path = "/updateC/{id}")
+    public int updatenumCamisa(@PathVariable int id){
+        return futbolistaServicio.updateCamisaFutbolistas(id);
+    }
+
+    //Ciclo del Bean
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Después de haber destruido el Bean");
+        System.out.println(futbolistaServicio.findAll());
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Después de inicializar el bean");
+        System.out.println(futbolistaServicio.findAll());
     }
 }
